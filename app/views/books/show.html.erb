@@ -13,7 +13,6 @@
             <th colspan="5"></th>
           </tr>
         </thead>
-        <% @books.each do |book| %>
         <tbody>
           <tr>
             <td><%= image_tag book.user.get_profile_image(100,100) %></td>
@@ -23,8 +22,19 @@
               <% end %>
             </td>
             <td><%= book.body %></td>
-            <td></td>
-            <td></td>
+            <td>
+              <% if @book.user == current_user %>
+              　<%= link_to "Show", book_path(@book) %>
+  　　　　　　　　　　<% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+               <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
-        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
