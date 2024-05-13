@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  validates :name, presence: true
 
   has_many :books, dependent: :destroy
 
@@ -13,6 +15,6 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/default-image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    self.profile_image.variant(resize_to_limit: [width, height]).processed
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 end
