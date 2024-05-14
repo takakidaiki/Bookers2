@@ -1,6 +1,6 @@
 <div>
   <%= flash[:notice] %>
-</div>どうしたらいいですか
+</div>
 <div class="container px-5 px-sm-0">
   <div class="row">
   <%= render 'list', user: @user %>
@@ -23,7 +23,7 @@
             </td>
             <td>
               <% if @book.user == current_user %>
-               <%= link_to "Destroy", book_path(@book), class: "btn btn-sm btn-danger destroy_book" method: :delete %>
+               <%= link_to "Destroy", book_path(@book), class: "btn btn-sm btn-danger destroy_book", rel: "nofollow", method: :delete %>
               <% end %>
             </td>
             <td colspan="5"></td>
