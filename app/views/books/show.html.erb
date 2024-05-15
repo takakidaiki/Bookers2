@@ -9,9 +9,9 @@
       <table class="table table-hover table-inverse">
         <tbody>
           <tr>
-            <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
             <td>
-              <%= link_to book_path(@book.id) do %>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @book.user.get_profile_image(100,100) %><br>
                 <%= @book.title %>
               <% end %>
             </td>
